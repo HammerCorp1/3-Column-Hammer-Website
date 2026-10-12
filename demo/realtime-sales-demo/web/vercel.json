@@ -27,6 +27,8 @@
       "destination": "/$1/index.html"
     },
     { "source": "/(reviews|faq|terms|privacy|support|about)/", "destination": "/$1/index.html" },
+    { "source": "/(privacy-policy|sms-terms)", "destination": "/$1/index.html" },
+    { "source": "/(privacy-policy|sms-terms)/", "destination": "/$1/index.html" },
     { "source": "/get-started", "destination": "/index.html" }
   ]
 }

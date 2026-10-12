@@ -2,7 +2,7 @@
 
 Hammer Corp Privacy Policy
 
-Last Updated: 10/10/2024
+Last Updated: 10/12/2026
 
 Your privacy is important to us at Hammer Corp. and its affiliates and subsidiaries (collectively “Hammer,” “we,” “us,” or “our”), and we are committed to safeguarding, preserving, and respecting your privacy rights. This privacy policy (“Privacy Policy” or “Policy”) describes how we collect, use, disclose, and secure the personal information we gather about you through this website (the “Site”) and when you engage to provide “Services” provided on our Site.
 
@@ -107,6 +107,10 @@ There is currently no industry agreed-upon response to a Do Not Track signal. At
 ### 4. Advertising and Marketing Choice
 
 We respect your rights in how your personal information is used and shared. We will only send you commercial electronic messages when we have your consent. If at any time you would like to unsubscribe from receiving future emails, you can email us at support@hammertime.com or follow the instructions at the bottom of each email/message, and we will promptly remove you from marketing correspondence. Please note, however, that we may still need to contact you regarding other matters.
+
+#### Text Messaging (SMS)
+
+No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Text messaging originator opt-in data and consent will not be shared with any third parties. We share mobile phone numbers only with the service providers that deliver our text messages, and only to provide that service. To stop receiving text messages, reply STOP to any message. For help, contact support@hammertime.com or (512) 883-1336. See our SMS Terms at https://www.hammertime.com/sms-terms.
 
 ### 5. How Long Is Your Personal Information Kept
 
