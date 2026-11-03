@@ -1394,7 +1394,7 @@ function renderProductColPrice(key: string, fallback: string, productName: strin
 
 type ProductColSpec = {
   slug: string;
-  modifier: "drive" | "aia" | "marketposter";
+  modifier: "drive" | "aia";
   nameKey: string;
   nameFallback: string;
   taglineKey: string;
@@ -1411,23 +1411,6 @@ type ProductColSpec = {
 };
 
 const PRODUCT_COL_SPECS: ProductColSpec[] = [
-  {
-    slug: "Facebook AIA",
-    modifier: "aia",
-    nameKey: "rt_product_aia_name",
-    nameFallback: "Facebook Ads",
-    taglineKey: "rt_product_aia_tagline",
-    taglineFallback: "Runs Facebook and Instagram ads from your lot.",
-    priceKey: "rt_product_aia_price",
-    priceFallback: "$299/mo + ad spend",
-    bullets: [
-      { key: "rt_product_aia_b1", fallback: "Your cars are the ads." },
-      { key: "rt_product_aia_b2", fallback: "Hammer answers every lead." },
-      { key: "rt_product_aia_b3", fallback: "Shows on Facebook and Instagram together." },
-    ],
-    voiceAriaKey: "rt_product_voice_aria_aia",
-    voiceAriaFallback: "Ask Hannah to pitch you on Facebook AIA",
-  },
   {
     slug: "Hammer Drive",
     modifier: "drive",
@@ -1449,21 +1432,21 @@ const PRODUCT_COL_SPECS: ProductColSpec[] = [
     badgeFallback: "Most Popular",
   },
   {
-    slug: "MarketPoster",
-    modifier: "marketposter",
-    nameKey: "rt_product_mp_name",
-    nameFallback: "MarketPoster",
-    taglineKey: "rt_product_mp_tagline",
-    taglineFallback: "Post your whole lot to Facebook Marketplace in one click.",
-    priceKey: "rt_product_mp_price",
-    priceFallback: "From $99/mo",
+    slug: "Facebook AIA",
+    modifier: "aia",
+    nameKey: "rt_product_aia_name",
+    nameFallback: "Facebook Ads",
+    taglineKey: "rt_product_aia_tagline",
+    taglineFallback: "Runs Facebook and Instagram ads from your lot.",
+    priceKey: "rt_product_aia_price",
+    priceFallback: "$299/mo + ad spend",
     bullets: [
-      { key: "rt_product_mp_b1", fallback: "Never retype price, photos, or VIN." },
-      { key: "rt_product_mp_b2", fallback: "Select cars and post in bulk." },
-      { key: "rt_product_mp_b3", fallback: "Auto-reposts so your listings stay on top." },
+      { key: "rt_product_aia_b1", fallback: "Your cars are the ads." },
+      { key: "rt_product_aia_b2", fallback: "Hammer answers every lead." },
+      { key: "rt_product_aia_b3", fallback: "Shows on Facebook and Instagram together." },
     ],
-    voiceAriaKey: "rt_product_voice_aria_mp",
-    voiceAriaFallback: "Ask Hannah to pitch you on MarketPoster",
+    voiceAriaKey: "rt_product_voice_aria_aia",
+    voiceAriaFallback: "Ask Hannah to pitch you on Facebook AIA",
   },
 ];
 
@@ -1506,7 +1489,8 @@ function productColVoiceSessionClass(productName: string, live: boolean, connect
 
 function renderProductColumnsHtml(live = false, connecting = false): string {
   const aria = copy("rt_product_cols_aria", "Hammer products");
-  return `<div class="product-columns" aria-label="${escapeHtml(aria)}">
+  const duo = PRODUCT_COL_SPECS.length === 2 ? " product-columns--duo" : "";
+  return `<div class="product-columns${duo}" aria-label="${escapeHtml(aria)}">
             ${PRODUCT_COL_SPECS.map((spec) => renderProductColCard(spec, live, connecting)).join("")}
           </div>`;
 }

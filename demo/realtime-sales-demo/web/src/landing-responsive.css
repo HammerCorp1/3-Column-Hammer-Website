@@ -453,6 +453,10 @@
   margin-inline: auto !important;
 }
 
+.app-shell--landing .landing-hero--home .product-columns--duo {
+  max-width: min(860px, 100%) !important;
+}
+
 .app-shell--landing .landing-hero__cta-wrap {
   width: 100% !important;
   display: flex !important;

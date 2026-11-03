@@ -7590,7 +7590,7 @@ footer.site-footer button.site-footer__link {
   width: 100%;
 }
 
-/* ─── Product columns (Hammer Drive · Facebook AIA · MarketPoster) ─── */
+/* ─── Product columns (Hammer Drive · Facebook AIA) ─── */
 .product-columns {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
