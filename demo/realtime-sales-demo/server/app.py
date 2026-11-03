@@ -683,6 +683,30 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Hannah (voice + chat sales agent) is retired. Her routes stay unreachable so
+# nobody can mint ElevenLabs / OpenAI Realtime sessions or drive Hammer Office.
+_HANNAH_RETIRED_PREFIXES = (
+    "/api/elevenlabs",
+    "/api/chat",
+    "/api/voice/",
+    "/api/realtime/",
+    "/api/telephony/callback",
+    "/api/twilio/voice/",
+    "/api/hammer/",
+    "/api/debug/hammer/",
+    "/api/debug/voice",
+    "/debug/voice-dashboard",
+    "/api/admin/voice",
+    "/admin/voice",
+)
+
+
+@app.middleware("http")
+async def _hannah_retired(request: Request, call_next):
+    if request.url.path.startswith(_HANNAH_RETIRED_PREFIXES):
+        return JSONResponse({"detail": "Hannah has been retired."}, status_code=410)
+    return await call_next(request)
+
 
 _HAMMER_AGREEMENT_LOGO = _SERVER_DIR / "static" / "email" / "hammer-ai-logo.png"
 _HAMMER_WORDMARK = _SERVER_DIR / "static" / "hammer-wordmark.png"

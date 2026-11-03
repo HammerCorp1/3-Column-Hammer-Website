@@ -1402,8 +1402,6 @@ type ProductColSpec = {
   priceKey?: string;
   priceFallback?: string;
   bullets: { key: string; fallback: string }[];
-  voiceAriaKey: string;
-  voiceAriaFallback: string;
   /** Featured product gets center placement, a badge, and the primary CTA treatment. */
   featured?: boolean;
   badgeKey?: string;
@@ -1425,8 +1423,6 @@ const PRODUCT_COL_SPECS: ProductColSpec[] = [
       { key: "rt_product_drive_b2", fallback: "Follows up for weeks when buyers go quiet." },
       { key: "rt_product_drive_b3", fallback: "Books the appointment right in your CRM." },
     ],
-    voiceAriaKey: "rt_product_voice_aria_drive",
-    voiceAriaFallback: "Ask Hannah to pitch you on Hammer Drive",
     featured: true,
     badgeKey: "rt_product_drive_badge",
     badgeFallback: "Most Popular",
@@ -1445,8 +1441,6 @@ const PRODUCT_COL_SPECS: ProductColSpec[] = [
       { key: "rt_product_aia_b2", fallback: "Hammer answers every lead." },
       { key: "rt_product_aia_b3", fallback: "Shows on Facebook and Instagram together." },
     ],
-    voiceAriaKey: "rt_product_voice_aria_aia",
-    voiceAriaFallback: "Ask Hannah to pitch you on Facebook AIA",
   },
 ];
 
@@ -1619,26 +1613,7 @@ function renderHomeHeroHtml(): string {
             <div class="landing-home__rule" aria-hidden="true"><span></span></div>`;
 }
 
-function renderFooterCtaHtml(live: boolean, connecting: boolean): string {
-  const ctaLabel = copy("rt_home_voice_cta", "Talk to Hannah, our voice AI");
-  if (NAV_PANEL_VOICE_ENABLED) {
-    return `<button type="button"
-              id="footerCtaVoice"
-              class="footer-cta__pill footer-cta__pill--voice${live ? " is-live" : ""}${connecting ? " is-connecting" : ""}"
-              data-voice-scenario="hammer"
-              ${connecting ? "disabled" : ""}
-              aria-label="${connecting ? escapeHtml(copy("rt_call_aria_connecting", "Connecting…")) : live ? escapeHtml(copy("rt_call_aria_end", "End call")) : escapeHtml(ctaLabel)}">
-              <span class="footer-cta__pill-wave" aria-hidden="true">${iconFooterCtaMic}</span>
-              <span class="footer-cta__pill-label">${live ? escapeHtml(copy("rt_call_aria_end", "End call")) : escapeHtml(ctaLabel)}</span>
-            </button>`;
-  }
-  if (outboundCallMePrimary()) {
-    return `<button type="button" class="footer-cta__pill footer-cta__pill--phone" id="footerCtaVoice"
-              aria-label="${escapeHtml(copy("rt_call_aria_phone", "Call Hannah on your phone"))}" aria-haspopup="dialog">
-              <span class="footer-cta__pill-wave footer-cta__pill-wave--phone" aria-hidden="true">${iconLandingCtaPhone}</span>
-              <span class="footer-cta__pill-label">${escapeHtml(copy("rt_home_voice_cta", "Talk to Hannah, our voice AI"))}</span>
-            </button>`;
-  }
+function renderFooterCtaHtml(_live: boolean, _connecting: boolean): string {
   return `<button type="button" class="footer-cta__pill" data-action="open-sign-up" aria-label="${escapeHtml(copy("rt_nav_sign_up_aria", "Sign up for Hammer"))}">
             <span class="footer-cta__pill-label">${escapeHtml(copy("rt_nav_cta", "Get Started"))}</span>
             <span class="footer-cta__pill-arrow" aria-hidden="true">
@@ -3509,15 +3484,7 @@ void (async () => {
           "rt_status_idle",
           "Allow microphone access when prompted, then start the call.",
         )
-      : telephonyOutbound.enabled
-        ? copy(
-            "rt_status_idle_call_me",
-            "Enter your number. Hannah will call you. You're the buyer. Push back.",
-          )
-        : copy(
-            "rt_status_idle_phone",
-            "Call Hannah on your phone. You're the buyer. Push back.",
-          );
+      : "";
   };
 
   // Honor "Get Started" clicks that happened before this bundle even loaded
