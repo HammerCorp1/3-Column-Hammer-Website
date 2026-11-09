@@ -61,7 +61,13 @@
           <a class="chrome__brand-link" href="/" aria-label="Hammer">
             <span class="logo-img logo-img--hammer" role="img" aria-label="HAMMER"></span>
           </a>
-          
+          <nav class="chrome__nav" aria-label="Sections">
+            <a href="/#how-it-works" class="chrome__jump chrome__jump--link">How it works</a>
+<a href="/#integrations" class="chrome__jump chrome__jump--link">Integrations</a>
+<a href="/reviews" class="chrome__jump chrome__jump--link">Reviews</a>
+<a href="/guides" class="chrome__jump chrome__jump--link">Guides</a>
+<a href="/faq" class="chrome__jump chrome__jump--link">FAQ</a>
+          </nav>
           <div class="chrome__actions">
             <button type="button" class="chrome__jump chrome__jump--panel chrome__jump--signup" data-action="open-sign-up" aria-label="Sign up for Hammer">
               Get Started            </button>
@@ -78,10 +84,22 @@
             </a>
           </div>
           </div>
-          
+          <button type="button" class="chrome__menu-toggle" id="chromeMenuToggle" aria-expanded="false" aria-controls="chromeMobileMenu" aria-label="Open menu">
+            <span class="chrome__menu-icon" aria-hidden="true"></span>
+          </button>
         </header>
 
-        
+        <div class="chrome-mobile-menu" id="chromeMobileMenu" hidden="" aria-hidden="true">
+          <button type="button" class="chrome-mobile-menu__backdrop" data-action="close-mobile-menu" tabindex="-1" aria-label="Close menu"></button>
+          <nav class="chrome-mobile-menu__sheet" aria-label="Sections">
+            <a href="/#how-it-works" class="chrome__jump chrome__jump--link chrome__jump--mobile" data-action="close-mobile-menu">How it works</a>
+<a href="/#integrations" class="chrome__jump chrome__jump--link chrome__jump--mobile" data-action="close-mobile-menu">Integrations</a>
+<a href="/reviews" class="chrome__jump chrome__jump--link chrome__jump--mobile" data-action="close-mobile-menu">Reviews</a>
+<a href="/guides" class="chrome__jump chrome__jump--link chrome__jump--mobile" data-action="close-mobile-menu">Guides</a>
+<a href="/faq" class="chrome__jump chrome__jump--link chrome__jump--mobile" data-action="close-mobile-menu">FAQ</a>
+            <a class="chrome__jump chrome__jump--login chrome__jump--mobile chrome__jump--menu-login" href="https://www2.hammer-corp.com/session/new" target="_blank" rel="noopener noreferrer">Login</a>
+          </nav>
+        </div>
 
         <div class="nav-panel-layer is-open" aria-hidden="false">
           <div class="nav-panel-backdrop" data-action="close" aria-hidden="true"></div>
@@ -276,6 +294,7 @@
                   <span class="landing-home__title-line landing-home__title-line--payoff">for dealerships</span>
                 </span>
               </h1>
+              <p class="landing-home__sub">Hammer texts every lead back in seconds, follows up until they book, and puts the appointment in your CRM.</p>
             </header>
             <div class="landing-home__rule" aria-hidden="true"><span></span></div>
             <div class="landing-home__products">
@@ -355,7 +374,102 @@
             </span>
           </button>
           </div>
-        </main>
+          <div class="home-more">
+          <ul class="home-proof" aria-label="Hammer at a glance"><li class="home-proof__item"><span class="home-proof__value">4.6</span><span class="home-proof__label">on Google from 266 reviews</span></li><li class="home-proof__item"><span class="home-proof__value">2,500+</span><span class="home-proof__label">stores use Hammer</span></li><li class="home-proof__item"><span class="home-proof__value">Seconds</span><span class="home-proof__label">to answer a new lead, day or night</span></li><li class="home-proof__item"><span class="home-proof__value">48 hours</span><span class="home-proof__label">to go live in most stores</span></li></ul>
+
+          <section class="home-section home-how" id="how-it-works" aria-labelledby="homeHowTitle">
+            <div class="home-how__text">
+              <p class="home-section__kicker">How it works</p>
+              <h2 class="home-section__title" id="homeHowTitle">Every lead answered, followed up and booked</h2>
+              <ol class="home-steps"><li class="home-step">
+                  <span class="home-step__num" aria-hidden="true">1</span>
+                  <div>
+                    <h3 class="home-step__title">A lead comes in</h3>
+                    <p class="home-step__body">From your website, CarGurus, Autotrader, Facebook Marketplace or any other place you get leads.</p>
+                  </div>
+                </li><li class="home-step">
+                  <span class="home-step__num" aria-hidden="true">2</span>
+                  <div>
+                    <h3 class="home-step__title">Hammer texts back in seconds</h3>
+                    <p class="home-step__body">It answers questions about the car, price and trade, and keeps following up for weeks when a buyer goes quiet.</p>
+                  </div>
+                </li><li class="home-step">
+                  <span class="home-step__num" aria-hidden="true">3</span>
+                  <div>
+                    <h3 class="home-step__title">The appointment lands in your CRM</h3>
+                    <p class="home-step__body">Your team sees the booked appointment and the whole conversation. They take it from there and close the deal.</p>
+                  </div>
+                </li></ol>
+            </div>
+            <figure class="home-chat" aria-label="Example conversation between Hammer and a car buyer">
+              <figcaption class="home-chat__head">
+                <span class="home-chat__source">Facebook Marketplace lead</span>
+                <span class="home-chat__tag">Example</span>
+              </figcaption>
+              <ol class="home-chat__list"><li class="home-chat__msg home-chat__msg--lead">
+                  <span class="home-chat__bubble">Is the 2019 F-150 still available?</span>
+                  <span class="home-chat__meta">Maria · 9:42 PM</span>
+                </li><li class="home-chat__msg home-chat__msg--hammer">
+                  <span class="home-chat__bubble">Hi Maria, it is! It's the XLT with 48k miles. Want to come see it tomorrow? I have 10:30 or 4:00 open.</span>
+                  <span class="home-chat__meta">Hammer · 9:42 PM</span>
+                </li><li class="home-chat__msg home-chat__msg--lead">
+                  <span class="home-chat__bubble">4 works</span>
+                  <span class="home-chat__meta">Maria · 9:44 PM</span>
+                </li><li class="home-chat__msg home-chat__msg--hammer">
+                  <span class="home-chat__bubble">You're booked for 4:00 tomorrow. I'll text you the address and a reminder in the morning.</span>
+                  <span class="home-chat__meta">Hammer · 9:44 PM</span>
+                </li></ol>
+              <p class="home-chat__booked">Appointment booked in your CRM: tomorrow, 4:00 PM</p>
+            </figure>
+          </section>
+
+          <section class="home-section home-integrations" id="integrations" aria-labelledby="homeIntTitle">
+            <p class="home-section__kicker">Integrations</p>
+            <h2 class="home-section__title" id="homeIntTitle">Works with the CRM you already use</h2>
+            <p class="home-section__lead">No new CRM and no new logins. Hammer works inside the system your team already uses, and answers leads from every place you get them.</p>
+            <div class="home-integrations__groups">
+              <div>
+                <h3 class="home-integrations__label">CRMs</h3>
+                <ul class="home-chips"><li><a class="home-chip home-chip--link" href="/guides/dealercenter-compatible-ai">DealerCenter</a></li><li><a class="home-chip home-chip--link" href="/guides/vinsolutions">VinSolutions</a></li><li><a class="home-chip home-chip--link" href="/guides/elead">Elead</a></li><li><a class="home-chip home-chip--link" href="/guides/dealersocket">DealerSocket</a></li><li><a class="home-chip home-chip--link" href="/guides/tekion-crm">Tekion</a></li><li><a class="home-chip home-chip--link" href="/guides/reynolds">Reynolds</a></li><li><a class="home-chip home-chip--link" href="/guides/dealertrack">Dealertrack</a></li><li><a class="home-chip home-chip--link" href="/guides/dealercarsearch">Dealer Car Search</a></li><li><span class="home-chip">DriveCentric</span></li><li><span class="home-chip">CDK</span></li></ul>
+              </div>
+              <div>
+                <h3 class="home-integrations__label">Lead sources</h3>
+                <ul class="home-chips"><li><a class="home-chip home-chip--link" href="/guides/facebook-marketplace-leads">Facebook Marketplace</a></li><li><a class="home-chip home-chip--link" href="/guides/facebook-messenger-dealership">Facebook Messenger</a></li><li><a class="home-chip home-chip--link" href="/guides/cargurus-leads">CarGurus</a></li><li><a class="home-chip home-chip--link" href="/guides/autotrader-leads">Autotrader</a></li><li><span class="home-chip">Your website</span></li></ul>
+              </div>
+            </div>
+            <p class="home-section__note">Don't see yours? Call us. Most stores are connected within 48 hours.</p>
+          </section>
+
+          <section class="home-section home-reviews" aria-labelledby="homeRevTitle">
+            <p class="home-section__kicker">Reviews</p>
+            <h2 class="home-section__title" id="homeRevTitle">What dealers say</h2>
+            <p class="home-section__lead">Rated 4.6 on Google from 266 reviews.</p>
+            <div class="home-reviews__grid"><figure class="home-review">
+                <span class="home-review__stars" aria-label="5 out of 5 stars">★★★★★</span>
+                <blockquote class="home-review__quote">I was actually recommending Hammer to someone else recently, and while I was talking, it booked two appointments right in front of us. That kind of instant impact speaks for itself.</blockquote>
+                <figcaption class="home-review__who"><span class="home-review__name">Brandon</span> Keweenaw Chevy</figcaption>
+              </figure><figure class="home-review">
+                <span class="home-review__stars" aria-label="5 out of 5 stars">★★★★★</span>
+                <blockquote class="home-review__quote">We've been using Hammer at Peltier Kia Tyler to manage our leads, and the results have been fantastic! Hammer has significantly improved our response times and has been instrumental in booking numerous appointments.</blockquote>
+                <figcaption class="home-review__who"><span class="home-review__name">Brittany</span> Peltier Kia Tyler</figcaption>
+              </figure><figure class="home-review">
+                <span class="home-review__stars" aria-label="5 out of 5 stars">★★★★★</span>
+                <blockquote class="home-review__quote">So far a month in we've loved the service. Response time has been sub 5 seconds. AI responses have been very good and the support team and account managers are very easy to get ahold of.</blockquote>
+                <figcaption class="home-review__who"><span class="home-review__name">Bryce</span> Turpin CDJR</figcaption>
+              </figure></div>
+            <a class="home-link" href="/reviews">Read more reviews</a>
+          </section>
+
+          <section class="home-section home-final" aria-labelledby="homeFinalTitle">
+            <h2 class="home-section__title" id="homeFinalTitle">Stop losing leads after hours</h2>
+            <p class="home-section__lead">Tell us about your store and we'll call you back. Most stores go live within 48 hours.</p>
+            <div class="home-final__actions">
+              <button type="button" class="home-btn home-btn--primary" data-action="open-sign-up">Get Started</button>
+              <a class="home-btn" href="tel:+15128869117" data-sales-call="home">Call sales (512) 886-9117</a>
+            </div>
+            <a class="home-link" href="/faq">Questions? Read the FAQ</a>
+          </section>
+        </div>
         <footer class="site-footer" role="contentinfo">
           <nav class="site-footer__nav" aria-label="Legal and account">
             <div class="site-footer__legal">
@@ -370,6 +484,7 @@
             </div>
           </nav>
         </footer>
+        </main>
         <div class="lead-modal-layer" aria-hidden="true">
           <div class="lead-modal-backdrop" data-lead-close="" tabindex="-1" aria-hidden="true"></div>
           <div class="lead-modal" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle" id="leadModalDialog">

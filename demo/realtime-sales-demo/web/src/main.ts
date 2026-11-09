@@ -2,6 +2,7 @@ import "./style.css";
 import "./landing-hero.css";
 import "./cal-minimal-theme.css";
 import "./landing-responsive.css";
+import "./home-sections.css";
 import hammerTermsFragment from "./legal/hammer-terms-fragment.html?raw";
 import hammerPrivacyFragment from "./legal/hammer-privacy-fragment.html?raw";
 import type { VoiceConversation as Conversation } from "@elevenlabs/client";
@@ -1136,15 +1137,32 @@ let leadConsentChecked = false;
 
 const CHROME_NAV_SECTIONS: { id: NavPanelId; key: string; fallback: string; controls: string }[] = [];
 
+/** Header links to homepage sections and static pages (not panels). */
+const CHROME_NAV_LINKS: { href: string; key: string; fallback: string }[] = [
+  { href: "/#how-it-works", key: "rt_nav_how", fallback: "How it works" },
+  { href: "/#integrations", key: "rt_nav_integrations", fallback: "Integrations" },
+  { href: "/reviews", key: "rt_nav_reviews_page", fallback: "Reviews" },
+  { href: "/guides", key: "rt_nav_guides", fallback: "Guides" },
+  { href: "/faq", key: "rt_nav_faq", fallback: "FAQ" },
+];
+
+const hasChromeNav = () => CHROME_NAV_SECTIONS.length > 0 || CHROME_NAV_LINKS.length > 0;
+
 function renderChromeNavJumpButtons(extraClass = ""): string {
-  return CHROME_NAV_SECTIONS.map(({ id, key, fallback, controls }) => {
+  const panels = CHROME_NAV_SECTIONS.map(({ id, key, fallback, controls }) => {
     const active = openNavPanel === id;
     const cls = `chrome__jump chrome__jump--panel${extraClass ? ` ${extraClass}` : ""}${active ? " is-active" : ""}`;
     return `<a href="${NAV_PANEL_PATHS[id]}" class="${cls}" data-panel="${id}"
               aria-expanded="${active}" aria-controls="${controls}">
               ${escapeHtml(copy(key, fallback))}
             </a>`;
-  }).join("\n");
+  });
+  const closeMenu = extraClass.includes("chrome__jump--mobile") ? ` data-action="close-mobile-menu"` : "";
+  const links = CHROME_NAV_LINKS.map(
+    ({ href, key, fallback }) =>
+      `<a href="${href}" class="chrome__jump chrome__jump--link${extraClass ? ` ${extraClass}` : ""}"${closeMenu}>${escapeHtml(copy(key, fallback))}</a>`,
+  );
+  return [...panels, ...links].join("\n");
 }
 
 function renderFooterReviewsButton(): string {
@@ -1613,6 +1631,7 @@ function renderHomeHeroHtml(): string {
                   <span class="landing-home__title-line landing-home__title-line--payoff">${escapeHtml(payoff)}</span>
                 </span>
               </h1>
+              <p class="landing-home__sub">${escapeHtml(copy("rt_home_sub", "Hammer texts every lead back in seconds, follows up until they book, and puts the appointment in your CRM."))}</p>
             </header>
             <div class="landing-home__rule" aria-hidden="true"><span></span></div>`;
 }
@@ -1624,6 +1643,168 @@ function renderFooterCtaHtml(_live: boolean, _connecting: boolean): string {
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 3.5 13 8l-4.5 4.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </button>`;
+}
+
+const HOME_PROOF = [
+  { value: "4.6", key: "rt_home_proof_rating", fallback: "on Google from 266 reviews" },
+  { value: "2,500+", key: "rt_home_proof_stores", fallback: "stores use Hammer" },
+  { value: "Seconds", key: "rt_home_proof_speed", fallback: "to answer a new lead, day or night" },
+  { value: "48 hours", key: "rt_home_proof_live", fallback: "to go live in most stores" },
+];
+
+const HOME_STEPS = [
+  {
+    title: ["rt_home_step1_h", "A lead comes in"],
+    body: ["rt_home_step1_p", "From your website, CarGurus, Autotrader, Facebook Marketplace or any other place you get leads."],
+  },
+  {
+    title: ["rt_home_step2_h", "Hammer texts back in seconds"],
+    body: ["rt_home_step2_p", "It answers questions about the car, price and trade, and keeps following up for weeks when a buyer goes quiet."],
+  },
+  {
+    title: ["rt_home_step3_h", "The appointment lands in your CRM"],
+    body: ["rt_home_step3_p", "Your team sees the booked appointment and the whole conversation. They take it from there and close the deal."],
+  },
+];
+
+const HOME_CRMS: { name: string; href: string | null }[] = [
+  { name: "DealerCenter", href: "/guides/dealercenter-compatible-ai" },
+  { name: "VinSolutions", href: "/guides/vinsolutions" },
+  { name: "Elead", href: "/guides/elead" },
+  { name: "DealerSocket", href: "/guides/dealersocket" },
+  { name: "Tekion", href: "/guides/tekion-crm" },
+  { name: "Reynolds", href: "/guides/reynolds" },
+  { name: "Dealertrack", href: "/guides/dealertrack" },
+  { name: "Dealer Car Search", href: "/guides/dealercarsearch" },
+  { name: "DriveCentric", href: null },
+  { name: "CDK", href: null },
+];
+
+const HOME_SOURCES: { name: string; href: string | null }[] = [
+  { name: "Facebook Marketplace", href: "/guides/facebook-marketplace-leads" },
+  { name: "Facebook Messenger", href: "/guides/facebook-messenger-dealership" },
+  { name: "CarGurus", href: "/guides/cargurus-leads" },
+  { name: "Autotrader", href: "/guides/autotrader-leads" },
+  { name: "Your website", href: null },
+];
+
+const HOME_REVIEWS = [
+  {
+    quote: "I was actually recommending Hammer to someone else recently, and while I was talking, it booked two appointments right in front of us. That kind of instant impact speaks for itself.",
+    name: "Brandon",
+    dealer: "Keweenaw Chevy",
+  },
+  {
+    quote: "We've been using Hammer at Peltier Kia Tyler to manage our leads, and the results have been fantastic! Hammer has significantly improved our response times and has been instrumental in booking numerous appointments.",
+    name: "Brittany",
+    dealer: "Peltier Kia Tyler",
+  },
+  {
+    quote: "So far a month in we've loved the service. Response time has been sub 5 seconds. AI responses have been very good and the support team and account managers are very easy to get ahold of.",
+    name: "Bryce",
+    dealer: "Turpin CDJR",
+  },
+];
+
+const HOME_CHAT: { from: "lead" | "hammer"; text: string; time: string }[] = [
+  { from: "lead", text: "Is the 2019 F-150 still available?", time: "9:42 PM" },
+  { from: "hammer", text: "Hi Maria, it is! It's the XLT with 48k miles. Want to come see it tomorrow? I have 10:30 or 4:00 open.", time: "9:42 PM" },
+  { from: "lead", text: "4 works", time: "9:44 PM" },
+  { from: "hammer", text: "You're booked for 4:00 tomorrow. I'll text you the address and a reminder in the morning.", time: "9:44 PM" },
+];
+
+function renderHomeChips(items: { name: string; href: string | null }[]): string {
+  return items
+    .map(({ name, href }) =>
+      href
+        ? `<li><a class="home-chip home-chip--link" href="${href}">${escapeHtml(name)}</a></li>`
+        : `<li><span class="home-chip">${escapeHtml(name)}</span></li>`,
+    )
+    .join("");
+}
+
+/** Below the first screen: proof, how it works, integrations, reviews, and a closing call to action. */
+function renderHomeSectionsHtml(): string {
+  const phone = salesPhone();
+  const proof = HOME_PROOF.map(
+    (p) => `<li class="home-proof__item"><span class="home-proof__value">${escapeHtml(p.value)}</span><span class="home-proof__label">${escapeHtml(copy(p.key, p.fallback))}</span></li>`,
+  ).join("");
+  const steps = HOME_STEPS.map(
+    (s, i) => `<li class="home-step">
+                  <span class="home-step__num" aria-hidden="true">${i + 1}</span>
+                  <div>
+                    <h3 class="home-step__title">${escapeHtml(copy(s.title[0], s.title[1]))}</h3>
+                    <p class="home-step__body">${escapeHtml(copy(s.body[0], s.body[1]))}</p>
+                  </div>
+                </li>`,
+  ).join("");
+  const chat = HOME_CHAT.map(
+    (m) => `<li class="home-chat__msg home-chat__msg--${m.from}">
+                  <span class="home-chat__bubble">${escapeHtml(m.text)}</span>
+                  <span class="home-chat__meta">${m.from === "hammer" ? "Hammer" : "Maria"} · ${m.time}</span>
+                </li>`,
+  ).join("");
+  const reviews = HOME_REVIEWS.map(
+    (r) => `<figure class="home-review">
+                <span class="home-review__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <blockquote class="home-review__quote">${escapeHtml(r.quote)}</blockquote>
+                <figcaption class="home-review__who"><span class="home-review__name">${escapeHtml(r.name)}</span> ${escapeHtml(r.dealer)}</figcaption>
+              </figure>`,
+  ).join("");
+  return `<div class="home-more">
+          <ul class="home-proof" aria-label="${escapeHtml(copy("rt_home_proof_aria", "Hammer at a glance"))}">${proof}</ul>
+
+          <section class="home-section home-how" id="how-it-works" aria-labelledby="homeHowTitle">
+            <div class="home-how__text">
+              <p class="home-section__kicker">${escapeHtml(copy("rt_home_how_kicker", "How it works"))}</p>
+              <h2 class="home-section__title" id="homeHowTitle">${escapeHtml(copy("rt_home_how_h", "Every lead answered, followed up and booked"))}</h2>
+              <ol class="home-steps">${steps}</ol>
+            </div>
+            <figure class="home-chat" aria-label="${escapeHtml(copy("rt_home_chat_aria", "Example conversation between Hammer and a car buyer"))}">
+              <figcaption class="home-chat__head">
+                <span class="home-chat__source">${escapeHtml(copy("rt_home_chat_source", "Facebook Marketplace lead"))}</span>
+                <span class="home-chat__tag">${escapeHtml(copy("rt_home_chat_tag", "Example"))}</span>
+              </figcaption>
+              <ol class="home-chat__list">${chat}</ol>
+              <p class="home-chat__booked">${escapeHtml(copy("rt_home_chat_booked", "Appointment booked in your CRM: tomorrow, 4:00 PM"))}</p>
+            </figure>
+          </section>
+
+          <section class="home-section home-integrations" id="integrations" aria-labelledby="homeIntTitle">
+            <p class="home-section__kicker">${escapeHtml(copy("rt_home_int_kicker", "Integrations"))}</p>
+            <h2 class="home-section__title" id="homeIntTitle">${escapeHtml(copy("rt_home_int_h", "Works with the CRM you already use"))}</h2>
+            <p class="home-section__lead">${escapeHtml(copy("rt_home_int_p", "No new CRM and no new logins. Hammer works inside the system your team already uses, and answers leads from every place you get them."))}</p>
+            <div class="home-integrations__groups">
+              <div>
+                <h3 class="home-integrations__label">${escapeHtml(copy("rt_home_int_crms", "CRMs"))}</h3>
+                <ul class="home-chips">${renderHomeChips(HOME_CRMS)}</ul>
+              </div>
+              <div>
+                <h3 class="home-integrations__label">${escapeHtml(copy("rt_home_int_sources", "Lead sources"))}</h3>
+                <ul class="home-chips">${renderHomeChips(HOME_SOURCES)}</ul>
+              </div>
+            </div>
+            <p class="home-section__note">${escapeHtml(copy("rt_home_int_note", "Don't see yours? Call us. Most stores are connected within 48 hours."))}</p>
+          </section>
+
+          <section class="home-section home-reviews" aria-labelledby="homeRevTitle">
+            <p class="home-section__kicker">${escapeHtml(copy("rt_home_rev_kicker", "Reviews"))}</p>
+            <h2 class="home-section__title" id="homeRevTitle">${escapeHtml(copy("rt_home_rev_h", "What dealers say"))}</h2>
+            <p class="home-section__lead">${escapeHtml(copy("rt_home_rev_p", "Rated 4.6 on Google from 266 reviews."))}</p>
+            <div class="home-reviews__grid">${reviews}</div>
+            <a class="home-link" href="/reviews">${escapeHtml(copy("rt_home_rev_more", "Read more reviews"))}</a>
+          </section>
+
+          <section class="home-section home-final" aria-labelledby="homeFinalTitle">
+            <h2 class="home-section__title" id="homeFinalTitle">${escapeHtml(copy("rt_home_final_h", "Stop losing leads after hours"))}</h2>
+            <p class="home-section__lead">${escapeHtml(copy("rt_home_final_p", "Tell us about your store and we'll call you back. Most stores go live within 48 hours."))}</p>
+            <div class="home-final__actions">
+              <button type="button" class="home-btn home-btn--primary" data-action="open-sign-up">${escapeHtml(copy("rt_nav_cta", "Get Started"))}</button>
+              <a class="home-btn" href="${escapeHtml(phone.href)}" data-sales-call="home">${escapeHtml(copy("rt_home_final_call", "Call sales"))} ${escapeHtml(phone.display)}</a>
+            </div>
+            <a class="home-link" href="/faq">${escapeHtml(copy("rt_home_final_faq", "Questions? Read the FAQ"))}</a>
+          </section>
+        </div>`;
 }
 
 /** Secondary tel: link — hidden when browser voice is the primary CTA (single pill layout). */
@@ -2894,7 +3075,7 @@ function mount() {
           <a class="chrome__brand-link" href="${import.meta.env.BASE_URL}" aria-label="${escapeHtml(copy("rt_brand_aria", "Hammer"))}">
             <span class="logo-img logo-img--hammer" role="img" aria-label="${escapeHtml(copy("rt_logo_text", "HAMMER"))}"></span>
           </a>
-          ${CHROME_NAV_SECTIONS.length ? `<nav class="chrome__nav" aria-label="${escapeHtml(copy("rt_nav_aria", "Sections"))}">
+          ${hasChromeNav() ? `<nav class="chrome__nav" aria-label="${escapeHtml(copy("rt_nav_aria", "Sections"))}">
             ${renderChromeNavJumpButtons()}
           </nav>` : ""}
           <div class="chrome__actions">
@@ -2902,19 +3083,20 @@ function mount() {
             ${renderChromeLoginLink()}
             ${renderChromeSalesPhone()}
           </div>
-          ${CHROME_NAV_SECTIONS.length ? `<button type="button" class="chrome__menu-toggle${mobileNavMenuOpen ? " is-open" : ""}" id="chromeMenuToggle"
+          ${hasChromeNav() ? `<button type="button" class="chrome__menu-toggle${mobileNavMenuOpen ? " is-open" : ""}" id="chromeMenuToggle"
             aria-expanded="${mobileNavMenuOpen}" aria-controls="chromeMobileMenu"
             aria-label="${escapeHtml(mobileNavMenuOpen ? copy("rt_nav_menu_close_aria", "Close menu") : copy("rt_nav_menu_open_aria", "Open menu"))}">
             <span class="chrome__menu-icon" aria-hidden="true"></span>
           </button>` : ""}
         </header>
 
-        ${CHROME_NAV_SECTIONS.length ? `<div class="chrome-mobile-menu${mobileNavMenuOpen ? " is-open" : ""}" id="chromeMobileMenu"
+        ${hasChromeNav() ? `<div class="chrome-mobile-menu${mobileNavMenuOpen ? " is-open" : ""}" id="chromeMobileMenu"
           ${mobileNavMenuOpen ? "" : "hidden"} aria-hidden="${mobileNavMenuOpen ? "false" : "true"}">
           <button type="button" class="chrome-mobile-menu__backdrop" data-action="close-mobile-menu" tabindex="-1"
             aria-label="${escapeHtml(copy("rt_nav_menu_close_aria", "Close menu"))}"></button>
           <nav class="chrome-mobile-menu__sheet" aria-label="${escapeHtml(copy("rt_nav_aria", "Sections"))}">
             ${renderChromeNavJumpButtons("chrome__jump--mobile")}
+            ${renderChromeLoginLink("chrome__jump--mobile chrome__jump--menu-login")}
           </nav>
         </div>` : ""}
 
@@ -3064,7 +3246,7 @@ function mount() {
           <div class="footer-cta">
             ${renderFooterCtaHtml(navPanelVoiceLive, navPanelVoiceConnecting)}
           </div>
-        </main>
+          ${renderHomeSectionsHtml()}
         <footer class="site-footer" role="contentinfo">
           <nav class="site-footer__nav" aria-label="${escapeHtml(copy("rt_site_footer_aria", "Legal and account"))}">
             <div class="site-footer__legal">
@@ -3079,6 +3261,7 @@ function mount() {
             </div>
           </nav>
         </footer>
+        </main>
         <div class="lead-modal-layer${leadModalOpen ? " is-open" : ""}" aria-hidden="${leadModalOpen ? "false" : "true"}">
           <div class="lead-modal-backdrop" data-lead-close tabindex="-1" aria-hidden="true"></div>
           <div
