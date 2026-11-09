@@ -10,7 +10,7 @@ All strings below are **shown in the browser** for the Hammer voice demos. Wordi
 
 ## rt_document_title
 
-Hammer: validate claims, resolve next steps (voice demo)
+Hammer | Human-like Agentic AI for Dealerships
 
 ## rt_hero_badge
 
@@ -410,7 +410,7 @@ Inventory and calendar feeds so texts don’t promise cars you sold yesterday.
 
 ## rt_nav_cta
 
-Sign Up
+Get Started
 
 ## rt_nav_pen_challenge
 

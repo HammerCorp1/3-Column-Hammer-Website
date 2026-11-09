@@ -32,7 +32,7 @@ const outFile = path.join(outDir, "landing.snapshot.html");
 // for crawlers/AI engines instead of SPA-fallback copies of the homepage.
 // Written to prerendered/route-<name>.snapshot.html; the prerender-inject
 // plugin (vite.config.ts) turns each into dist/<name>/index.html at build.
-const PANEL_ROUTES = ["reviews", "faq", "about", "support", "terms", "privacy"];
+const PANEL_ROUTES = ["terms", "privacy"];
 
 const MIME = {
   ".html": "text/html; charset=utf-8",

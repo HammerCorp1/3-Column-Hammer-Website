@@ -1,17 +1,16 @@
 # Hammer
 
-> Hammer (Hammer Corp, Austin, TX) builds human-like agentic AI for car dealerships. Its AI answers new sales leads in seconds by text and voice, follows up for weeks, and books appointments directly in the dealership's existing CRM. Google rating 4.6 stars across 266 reviews. Hammer is not HammerAI (hammerai.com, a consumer roleplay chat app) and is not hammer.ai.
+> Hammer (Hammer Corp, Austin, TX) builds human-like agentic AI for car dealerships. Its AI answers new sales leads in seconds by text, follows up for weeks, and books appointments directly in the dealership's existing CRM. Google rating 4.6 stars across 266 reviews. Hammer is not HammerAI (hammerai.com, a consumer roleplay chat app) and is not hammer.ai.
 
 Hammer's products:
 
 - **Hammer Drive** (most popular): instantly answers leads from every source, follows up until they book, and books appointments right in your CRM. Pricing varies by lot size.
 - **Facebook Ads**: runs Facebook and Instagram ads generated from the dealership's own inventory; Hammer answers every lead. $299/mo + ad spend.
-- **MarketPoster**: posts the whole lot to Facebook Marketplace in one click, with bulk posting and auto-reposting. From $99/mo.
 
 Key facts:
 
 - Works with the dealership's existing CRM (no CRM switch required).
-- Most stores go live in under 72 business hours once onboarding and feeds are connected.
+- Most stores go live in under 48 hours once onboarding and feeds are connected.
 - Hammer complements, not replaces, a dealership's BDC: it handles the first reply and follow-up; the dealer's team closes.
 - Sales: (512) 886-9117 · Support: (512) 883-1336 · support@hammertime.com
 - Address: Hammer Corp, 1401 Lavaca St, Suite 41100, Austin, TX 78701
@@ -48,7 +47,7 @@ Full page contents for AI crawlers: https://www.hammertime.com/llms-full.txt
 - [Hammer vs Numa](https://www.hammertime.com/guides/hammer-vs-numa): Numa is voice. Hammer is lead response by text in under 5 seconds
 - [DriveCentric Alternatives](https://www.hammertime.com/guides/drivecentric-alternatives): DriveCentric is a CRM. Hammer is the first-reply layer, including on DriveCentric
 - [Conversica Alternatives](https://www.hammertime.com/guides/conversica-alternatives): Conversica is enterprise nurture. Hammer answers Marketplace and CarGurus in under 5 seconds
-- [Facebook Marketplace Leads](https://www.hammertime.com/guides/facebook-marketplace-leads): A Marketplace message still gets a text in under 5 seconds. MarketPoster posts the lot from $99/mo
+- [Facebook Marketplace Leads](https://www.hammertime.com/guides/facebook-marketplace-leads): A Marketplace message still gets a text in under 5 seconds
 - [CarGurus Leads](https://www.hammertime.com/guides/cargurus-leads): A CarGurus form still gets a text in under 5 seconds, booked into the CRM you already use
 - [AutoTrader Leads](https://www.hammertime.com/guides/autotrader-leads): An AutoTrader form still gets a text in under 5 seconds, booked into the CRM you already use
 - [Facebook Messenger](https://www.hammertime.com/guides/facebook-messenger-dealership): A Messenger ping still gets a text in under 5 seconds. Same layer as Marketplace

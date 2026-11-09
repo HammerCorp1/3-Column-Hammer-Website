@@ -800,8 +800,12 @@ function readLeadFormPayload(form: HTMLFormElement) {
 function validateLeadPayload(payload: ReturnType<typeof readLeadFormPayload>): string | null {
   if (!payload.name) return copy("rt_lead_err_name", "Name is required.");
   if (!payload.phone) return copy("rt_lead_err_phone", "Phone is required.");
-  if (!payload.website.replace(/^https?:\/\//i, "").trim()) {
+  const host = payload.website.replace(/^https?:\/\//i, "").trim();
+  if (!host) {
     return copy("rt_lead_err_website", "Dealership website is required.");
+  }
+  if (host.includes("@") || /\s/.test(host) || !/^[^/?#]+\.[a-z]{2,}([/?#]|$)/i.test(host)) {
+    return copy("rt_lead_err_website_format", "Enter your dealership's website, like yourdealership.com.");
   }
   if (!payload.consent) {
     return copy("rt_lead_err_consent", "Please agree to be contacted to continue.");
@@ -1799,9 +1803,6 @@ async function loadSiteCopy(): Promise<void> {
     });
     if (!res.ok) return;
     siteCopy = (await res.json()) as SiteCopy;
-    if (siteCopy.rt_document_title) {
-      document.title = siteCopy.rt_document_title;
-    }
   } catch {
     /* keep fallbacks */
   }
@@ -2459,6 +2460,7 @@ function mount() {
             fbq?: (...args: unknown[]) => void;
           };
           w.gtag?.("event", "conversion", { send_to: "AW-16574612743/Plo9CJ2woc8aEIeKst89" });
+          w.gtag?.("event", "generate_lead", { lead_source: "website_form" });
           w.fbq?.("track", "Lead");
         } catch {
           /* ignore tracking errors */
@@ -2471,11 +2473,13 @@ function mount() {
         leadConsentChecked = false;
       } catch (err) {
         console.error("[lead form]", err);
-        const msg =
-          err instanceof Error
-            ? err.message
-            : copy("rt_lead_submit_err", "Could not submit. Try again.");
-        setLeadStatus(msg, "error");
+        setLeadStatus(
+          copy(
+            "rt_lead_submit_err",
+            "We couldn't send your info. Please try again, or call us at (512) 886-9117.",
+          ),
+          "error",
+        );
       } finally {
         submitBtn.disabled = false;
         if (submitLabel) submitLabel.textContent = defaultLabel;
@@ -3001,7 +3005,7 @@ function mount() {
                   </article>
                   <article class="nav-panel__faq-item">
                     <h3 class="nav-panel__faq-q">${escapeHtml(copy("rt_nav_panel_faq_q4", "How fast can we go live?"))}</h3>
-                    <p class="nav-panel__faq-a">${escapeHtml(copy("rt_nav_panel_faq_a4", "Most stores go live in under 72 business hours once onboarding and feeds are connected."))}</p>
+                    <p class="nav-panel__faq-a">${escapeHtml(copy("rt_nav_panel_faq_a4", "Most stores go live in under 48 hours once onboarding and feeds are connected."))}</p>
                   </article>
                   <article class="nav-panel__faq-item">
                     <h3 class="nav-panel__faq-q">${escapeHtml(copy("rt_nav_panel_faq_q5", "Is Hammer the same as HammerAI or hammer.ai?"))}</h3>

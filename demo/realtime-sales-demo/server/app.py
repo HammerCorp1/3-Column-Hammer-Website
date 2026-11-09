@@ -892,10 +892,8 @@ def health() -> dict:
         return {
             "ok": True,
             "openai_configured": bool(key),
-            "openai_key_source": key_src,
-            "openai_key_last4": key[-4:] if len(key) >= 4 else None,
-            **zapier_health,
-            **telephony,
+            **{k: v for k, v in zapier_health.items() if isinstance(v, bool)},
+            **{k: v for k, v in telephony.items() if isinstance(v, bool)},
         }
     raw = _hammer_raw_dir_for_retrieval()
     return {

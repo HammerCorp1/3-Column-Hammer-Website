@@ -84,14 +84,10 @@ function helpPageStylesPlugin() {
  * No-ops (with a warning) if the snapshot is missing so the build never breaks.
  */
 function prerenderInjectPlugin() {
-  /** Panel routes shipped as real static pages (see scripts/prerender.mjs). */
+  /** Panel routes shipped as real static pages (see scripts/prerender.mjs). /faq, /reviews, /about and /support are standalone pages in public/. */
   const routePages: { name: string; title: string }[] = [
-    { name: "reviews", title: "Hammer Reviews — What dealers say" },
-    { name: "faq", title: "Hammer FAQ — AI for car dealerships" },
-    { name: "about", title: "About Hammer — Hammer Corp, Austin TX" },
-    { name: "support", title: "Hammer Support — Contact us" },
-    { name: "terms", title: "Hammer — Terms of Service" },
-    { name: "privacy", title: "Hammer — Privacy Policy" },
+    { name: "terms", title: "Hammer Terms of Service" },
+    { name: "privacy", title: "Hammer Privacy Policy" },
   ];
 
   return {

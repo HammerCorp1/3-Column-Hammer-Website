@@ -23,7 +23,20 @@
     { "source": "/guides/dealercenter-compatable-ai", "destination": "/guides/dealercenter-compatible-ai", "permanent": true },
     { "source": "/guides/dealercenter-compatable-ai/", "destination": "/guides/dealercenter-compatible-ai", "permanent": true },
     { "source": "/guides/best-ai-for-dealercenter", "destination": "/guides/dealercenter-compatible-ai", "permanent": true },
-    { "source": "/guides/best-ai-for-dealercenter/", "destination": "/guides/dealercenter-compatible-ai", "permanent": true }
+    { "source": "/guides/best-ai-for-dealercenter/", "destination": "/guides/dealercenter-compatible-ai", "permanent": true },
+    { "source": "/10dlc", "destination": "/sms-terms", "permanent": true },
+    { "source": "/requestcancel", "destination": "/support", "permanent": true },
+    { "source": "/culture", "destination": "/about", "permanent": true },
+    { "source": "/tos", "destination": "/terms", "permanent": true },
+    { "source": "/aboutus", "destination": "/about", "permanent": true },
+    { "source": "/about-us", "destination": "/about", "permanent": true },
+    { "source": "/contact", "destination": "/support", "permanent": true },
+    { "source": "/legal/credit-app-privacy-policy", "destination": "/privacy-policy", "permanent": true },
+    { "source": "/pricing", "destination": "/guides/pricing", "permanent": true },
+    { "source": "/demo", "destination": "/get-started", "permanent": true },
+    { "source": "/integrations", "destination": "/guides", "permanent": true },
+    { "source": "/blog", "destination": "/guides", "permanent": true },
+    { "source": "/case-studies", "destination": "/reviews", "permanent": true }
   ],
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/index" },

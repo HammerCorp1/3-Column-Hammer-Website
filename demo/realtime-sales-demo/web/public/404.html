@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page not found | Hammer</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:opsz,wght@9..40,400;9..40,600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #f2f4f9;
+        --ink: #0c0f14;
+        --muted: rgba(12, 15, 20, 0.62);
+        --line: rgba(12, 15, 20, 0.08);
+        --red: #c91e1e;
+        --red-dark: #8f1010;
+        --font-display: "Fraunces", Georgia, serif;
+        --font-body: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        font-family: var(--font-body);
+        color: var(--ink);
+        background:
+          radial-gradient(ellipse 85% 55% at 50% 0%, rgba(43, 127, 212, 0.07) 0%, transparent 58%),
+          radial-gradient(ellipse 70% 50% at 92% 18%, rgba(201, 30, 30, 0.06) 0%, transparent 52%),
+          linear-gradient(180deg, #fafbfd 0%, var(--bg) 100%);
+      }
+      .top { height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; }
+      .logo {
+        display: block; width: 148px; height: 30px;
+        background: linear-gradient(105deg, #8f1010 0%, #c91e1e 42%, #e03030 100%);
+        -webkit-mask-image: url(/hammer-wordmark.png); mask-image: url(/hammer-wordmark.png);
+        -webkit-mask-size: contain; mask-size: contain;
+        -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+        -webkit-mask-position: left center; mask-position: left center;
+      }
+      .top-cta {
+        display: inline-flex; align-items: center; min-height: 40px; padding: 8px 18px;
+        border-radius: 999px; font-size: 14px; font-weight: 600; text-decoration: none; color: #fff;
+        background: linear-gradient(145deg, #f14d4d 0%, var(--red) 55%, var(--red-dark) 100%);
+      }
+      main { flex: 1; width: 100%; max-width: 780px; margin: 0 auto; padding: 24px 24px 72px; }
+      .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+      .crumbs a { color: var(--muted); text-decoration: none; }
+      .crumbs a:hover { color: var(--red); }
+      h1 { font-family: var(--font-display); font-size: clamp(30px, 5vw, 40px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 10px; }
+      .dateline { font-size: 13.5px; color: var(--muted); margin-bottom: 26px; }
+      h2 { font-family: var(--font-display); font-size: clamp(22px, 3.4vw, 27px); font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; margin: 40px 0 12px; }
+      p, li { font-size: 16.5px; line-height: 1.62; color: rgba(12, 15, 20, 0.82); }
+      p { margin-bottom: 14px; }
+      strong { color: var(--ink); }
+      ul, ol { margin: 0 0 14px 22px; }
+      li { margin-bottom: 8px; }
+      a.in-copy { color: var(--red); text-decoration: none; }
+      a.in-copy:hover { text-decoration: underline; }
+      .table-wrap { overflow-x: auto; margin: 18px 0 8px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+      table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 14.5px; }
+      th, td { text-align: left; vertical-align: top; padding: 11px 14px; border-bottom: 1px solid var(--line); line-height: 1.45; }
+      tr:last-child th, tr:last-child td { border-bottom: none; }
+      thead th { font-size: 13px; font-weight: 600; color: var(--muted); background: rgba(12, 15, 20, 0.025); }
+      .card-list { display: grid; gap: 12px; margin: 20px 0 8px; }
+      .card { display: block; padding: 18px 20px; border: 1px solid var(--line); border-radius: 14px; background: #fff; text-decoration: none; color: inherit; }
+      .card:hover { border-color: rgba(201, 30, 30, 0.28); }
+      .card h2 { font-family: var(--font-body); font-size: 17px; margin: 0 0 6px; }
+      .card p { font-size: 14.5px; margin: 0; color: var(--muted); }
+      .faq-item { margin-bottom: 20px; }
+      .faq-item h3 { font-family: var(--font-body); font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+      .cta-band { margin-top: 44px; padding: 26px; border: 1px solid var(--line); border-radius: 16px; background: #fff; text-align: center; }
+      .cta-band p { margin-bottom: 16px; }
+      .cta-band a {
+        display: inline-flex; align-items: center; min-height: 44px; padding: 10px 26px;
+        border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; color: #fff;
+        background: linear-gradient(145deg, #f14d4d 0%, var(--red) 55%, var(--red-dark) 100%);
+      }
+      footer { border-top: 1px solid var(--line); padding: 20px 28px 28px; display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; font-size: 13.5px; }
+      footer a { color: var(--muted); text-decoration: none; }
+      footer a:hover { color: var(--red); }
+      @media (max-width: 560px) { .top { padding: 0 20px; } main { padding: 18px 18px 56px; } }
+</style>
+  </head>
+<body>
+    <header class="top">
+      <a href="/" aria-label="Hammer"><span class="logo"></span></a>
+      <a class="top-cta" href="/get-started">Get Started</a>
+    </header>
+
+    <main>
+      <article>
+        <h1>We can't find that page</h1>
+        <p>The link may be old or mistyped. Here is where most people are headed:</p>
+        <div class="card-list">
+          <a class="card" href="/"><h2>Home</h2><p>Hammer answers dealership leads by text in under 5 seconds.</p></a>
+          <a class="card" href="/guides/pricing"><h2>Pricing</h2><p>What Hammer costs and what is included.</p></a>
+          <a class="card" href="/guides"><h2>Guides</h2><p>Lead response, CRM fit, comparisons, and onboarding.</p></a>
+          <a class="card" href="/support"><h2>Support</h2><p>Call (512) 883-1336 or email support@hammertime.com.</p></a>
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      <a href="/">Home</a>
+      <a href="/guides">Guides</a>
+      <a href="/guides/pricing">Pricing</a>
+      <a href="/guides/onboarding">Onboarding</a>
+      <a href="/reviews">Reviews</a>
+      <a href="/faq">FAQ</a>
+      <a href="/about">About</a>
+      <a href="/support">Support</a>
+    </footer>
+  </body>
+</html>
