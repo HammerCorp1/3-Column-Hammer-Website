@@ -286,7 +286,7 @@ Conversica is enterprise nurture across industries. For a car lot, Hammer is the
 
 ## Guide: Facebook Marketplace Leads (https://www.hammertime.com/guides/facebook-marketplace-leads)
 
-A Marketplace message still gets a text in under 5 seconds. Hammer answers the thread, follows up until they book, and writes the appointment into the CRM you already use.
+Hammer answers the messages that come in to the dealership's Facebook business Page in under 5 seconds. It replies in Messenger, follows up until they book, and writes the appointment into the CRM you already use. Marketplace messages sent to a salesperson's personal Facebook profile go to that person's own Messenger, where Hammer can't reach them. Hammer does not post listings to Marketplace.
 
 ---
 
