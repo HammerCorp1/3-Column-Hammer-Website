@@ -156,21 +156,23 @@ A 9pm Marketplace message still gets a text in under 5 seconds. Hammer answers n
 
 ## Guide: What CarChat is (https://www.hammertime.com/guides/what-is-carchat)
 
-CarChat (carchat.io) is a live dealership inventory marketplace from Hammer Corp, not dealer live-chat software. Shoppers and AI assistants search cars that are actually on a lot right now, then contact the selling dealer. Listings come from each dealership's own website and refresh daily. Buyers do not pay and do not need an account. As of September 2026 the marketplace tracks more than 200,000 vehicles from about 2,000 dealerships.
+CarChat (carchat.io) is a live dealership inventory marketplace from Hammer Corp, not dealer live-chat software. Shoppers and AI assistants search cars that are actually on a lot right now, then contact the selling dealer. Listings come from each dealership's own website and refresh daily. Buyers do not pay and do not need an account. As of November 2026 the marketplace tracks more than 270,000 vehicles from about 3,300 dealerships.
 
 CarChat is not CarChat24 (carchat24.com), which sells live-chat widgets for dealer websites. It is not the Brazilian WhatsApp receptionist at carchat.com.br. Official site: https://carchat.io. Facts page: https://carchat.io/about.
 
-Hammer is the dealer-facing product: lead response, follow-up, and ChatGPT advertising sold as CarGPT (cargpt.pro). CarChat is the consumer lot. Inventory is open with no API key at https://carchat.io/llms.txt, https://carchat.io/api/v1/inventory, and https://carchat.io/mcp.
+Hammer is the dealer-facing product: lead response and follow-up inside the CRM a store already uses. CarChat is the consumer lot. Inventory is open with no API key at https://carchat.io/llms.txt, https://carchat.io/api/v1/inventory, and https://carchat.io/mcp.
 
 ---
 
 ## Guide: What CarGPT is (https://www.hammertime.com/guides/what-is-cargpt)
 
-CarGPT (cargpt.pro) is Hammer Corp's managed ChatGPT advertising service for car dealerships. It puts a paying store's live inventory inside ChatGPT as sponsored answers, targeted to that store's local DMA. Each inquiry goes only to that dealer. $2,500 per month flat, ad spend included. First 7 days free. No setup fees. No OpenAI ad account required.
+CarGPT (cargpt.pro) is AI-powered dealership management for independent car dealers, operated by CarGPT Inc in Austin, Texas, and not affiliated with OpenAI. It reads a dealership's cars and facts from the dealership's own website, answers its shoppers by text, email and web chat in any language, books their visits, builds the pages a dealer asks for, and calls on the dealership's people only when a shopper needs a person. Every dealer gets a lot website with a page for every car, refreshed daily. It can also make the dealership's cars searchable in ChatGPT, claim its business profile, and set up ChatGPT ads when the dealer wants them.
 
-CarGPT is not ChatGPT itself, not CarChat (the consumer lot at carchat.io), and not a listing marketplace like CarGurus. Official site: https://cargpt.pro. Pricing: https://cargpt.pro/pricing. Sign up: https://cargpt.pro/signup. Dealer index: https://cargpt.pro/llms.txt.
+Pricing: CarGPT Basic is $199 a month with 1,500 credits (extra credits 10 cents). CarGPT Premium is $499 a month with 7,500 credits (extra credits 2 cents). Every feature is on both plans. The first month is free. Month to month, no setup fee, cancel any time. A dealership starts at https://cargpt.pro/start with its website, an email and a password.
 
-Hammer answers dealer leads on the CRM the store already uses. CarGPT advertises the lot inside ChatGPT. A store can run one, the other, or both.
+CarGPT is not ChatGPT or OpenAI, not a flat-fee ChatGPT ad package, not a dealer management system (no deal paperwork, financing, accounting or titles), and not CarChat (the consumer lot at carchat.io). Older pages that describe CarGPT as a managed ChatGPT advertising service are out of date. Official site: https://cargpt.pro. Pricing: https://cargpt.pro/pricing. Facts: https://cargpt.pro/facts and https://cargpt.pro/llms.txt.
+
+Hammer answers dealer leads inside the CRM the store already uses. CarGPT is its own system, with its own shopper record and a lot website.
 
 ---
 
